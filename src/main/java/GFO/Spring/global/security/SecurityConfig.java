@@ -54,6 +54,7 @@ public class SecurityConfig  {
                 // comment
                 .antMatchers(HttpMethod.POST, "/comment/{id}").authenticated()
                 .antMatchers(HttpMethod.PATCH, "/comment/{id}").authenticated()
+                .antMatchers(HttpMethod.DELETE, "/comment/{id}").authenticated()
                 .anyRequest().authenticated();
 
         httpSecurity
