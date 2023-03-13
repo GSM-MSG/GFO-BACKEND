@@ -1,5 +1,7 @@
 package GFO.Spring.global.exception.handler;
 
+import GFO.Spring.domain.comment.exception.CommentNotFoundException;
+import GFO.Spring.domain.comment.exception.CommentUserMismatchException;
 import GFO.Spring.domain.email.exception.AuthCodeMismatchException;
 import GFO.Spring.domain.email.exception.EmailSendFailedException;
 import GFO.Spring.domain.email.exception.ManyRequestEmailAuthException;
@@ -104,6 +106,18 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(FailedUploadImageException.class)
     public ResponseEntity<ErrorResponse> failedUploadImage(FailedUploadImageException exception) {
+        ErrorResponse errorResponse = new ErrorResponse(exception.getErrorCode().getMessage(), exception.getErrorCode().getStatus());
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.valueOf(exception.getErrorCode().getStatus()));
+    }
+
+    @ExceptionHandler(CommentNotFoundException.class)
+    public ResponseEntity<ErrorResponse> commentNotFound(CommentNotFoundException exception) {
+        ErrorResponse errorResponse = new ErrorResponse(exception.getErrorCode().getMessage(), exception.getErrorCode().getStatus());
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.valueOf(exception.getErrorCode().getStatus()));
+    }
+
+    @ExceptionHandler(CommentUserMismatchException.class)
+    public ResponseEntity<ErrorResponse> commentUserMismatch(CommentUserMismatchException exception) {
         ErrorResponse errorResponse = new ErrorResponse(exception.getErrorCode().getMessage(), exception.getErrorCode().getStatus());
         return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.valueOf(exception.getErrorCode().getStatus()));
     }

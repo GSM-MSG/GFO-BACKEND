@@ -13,6 +13,7 @@ public enum ErrorCode {
     EMAIL_NOT_VERIFIED("이메일이 인증되지 않았습니다", 401),
     TOKEN_EXPIRATION("토큰이 만료 되었습니다", 401),
     TOKEN_NOT_VALID("토큰이 유효하지 않습니다", 401),
+    COMMENT_USER_MISMATCH("댓글의 작성자가 아닙니다", 403),
     USER_NOT_FOUND("유저를 찾을 수 없습니다", 404),
     POST_NOT_FOUND("게시물을 찾을 수 없습니다", 404),
     REFRESH_TOKEN_NOT_FOUND("리프레시 토큰을 찾을 수 없습니다", 404),
