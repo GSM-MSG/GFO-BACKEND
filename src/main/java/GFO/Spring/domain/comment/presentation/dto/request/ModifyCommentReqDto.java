@@ -11,5 +11,5 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class ModifyCommentReqDto {
     @NotBlank(message = "수정된 댓글은 공백일 수 없습니다")
-    private String comment;
+    private String content;
 }

@@ -16,6 +16,6 @@ public class ModifyCommentServiceImpl implements ModifyCommentService {
     @Override
     public void execute(Long id, ModifyCommentReqDto modifyCommentReqDto) {
         Comment comment = commentRepository.findById(id).orElseThrow(() -> new CommentNotFoundException("댓글을 찾을 수 없습니다"));
-        commentRepository.save(comment.update(id, modifyCommentReqDto.getComment()));
+        commentRepository.save(comment.update(id, modifyCommentReqDto.getContent()));
     }
 }
