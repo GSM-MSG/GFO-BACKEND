@@ -46,7 +46,7 @@ public class PostController {
     }
 
     @GetMapping
-    public ResponseEntity<List<SinglePostListResDto>> ListAllPost() {
+    public ResponseEntity<List<SinglePostListResDto>> findAllPost() {
         List<SinglePostListResDto> results = postListService.execute();
         return new ResponseEntity<>(results, HttpStatus.OK);
     }
