@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SinglePostListResDto {
+    private Long postId;
     private String title;
     private String email;
     private String name;
