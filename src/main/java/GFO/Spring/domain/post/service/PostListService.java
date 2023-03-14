@@ -1,9 +1,9 @@
 package GFO.Spring.domain.post.service;
 
-import GFO.Spring.domain.post.presentation.dto.response.SinglePostListResDto;
+import GFO.Spring.domain.post.presentation.dto.response.PostListResDto;
 
 import java.util.List;
 
 public interface PostListService {
-    List<SinglePostListResDto> execute();
+    List<PostListResDto> execute();
 }

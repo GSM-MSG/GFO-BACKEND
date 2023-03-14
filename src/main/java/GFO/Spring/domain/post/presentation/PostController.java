@@ -2,14 +2,12 @@ package GFO.Spring.domain.post.presentation;
 
 import GFO.Spring.domain.post.presentation.dto.request.CreatePostRequest;
 import GFO.Spring.domain.post.presentation.dto.request.ModifyPostRequest;
-import GFO.Spring.domain.post.presentation.dto.response.SinglePostListResDto;
+import GFO.Spring.domain.post.presentation.dto.response.PostListResDto;
 import GFO.Spring.domain.post.service.CreatePostService;
 import GFO.Spring.domain.post.service.ModifyPostService;
 import GFO.Spring.domain.post.service.PostListService;
 import GFO.Spring.domain.post.service.RemovePostService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -46,8 +44,8 @@ public class PostController {
     }
 
     @GetMapping
-    public ResponseEntity<List<SinglePostListResDto>> findAllPost() {
-        List<SinglePostListResDto> results = postListService.execute();
+    public ResponseEntity<List<PostListResDto>> findAllPost() {
+        List<PostListResDto> results = postListService.execute();
         return new ResponseEntity<>(results, HttpStatus.OK);
     }
 }

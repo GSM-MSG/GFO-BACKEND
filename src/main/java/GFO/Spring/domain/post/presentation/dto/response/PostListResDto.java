@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SinglePostListResDto {
+public class PostListResDto {
     private Long postId;
     private String title;
     private String email;
