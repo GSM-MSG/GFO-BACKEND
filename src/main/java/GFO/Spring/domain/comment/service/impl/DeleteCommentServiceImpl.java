@@ -19,9 +19,9 @@ public class DeleteCommentServiceImpl implements DeleteCommentService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void execute(Long id) {
+    public void execute(Long commentId) {
         User user = userUtil.currentUser();
-        Comment comment = commentRepository.findById(id).orElseThrow(() -> new CommentNotFoundException("댓글을 찾을 수 없습니다"));
+        Comment comment = commentRepository.findById(commentId).orElseThrow(() -> new CommentNotFoundException("댓글을 찾을 수 없습니다"));
 
         if(!comment.getUser().equals(user))
             throw new CommentUserMismatchException("댓글의 작성자가 아닙니다");
