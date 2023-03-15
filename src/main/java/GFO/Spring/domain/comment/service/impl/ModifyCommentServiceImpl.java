@@ -18,13 +18,13 @@ public class ModifyCommentServiceImpl implements ModifyCommentService {
     private final UserUtil userUtil;
 
     @Override
-    public void execute(Long id, ModifyCommentReqDto modifyCommentReqDto) {
+    public void execute(Long commentId, ModifyCommentReqDto modifyCommentReqDto) {
         User user = userUtil.currentUser();
-        Comment comment = commentRepository.findById(id).orElseThrow(() -> new CommentNotFoundException("댓글을 찾을 수 없습니다"));
+        Comment comment = commentRepository.findById(commentId).orElseThrow(() -> new CommentNotFoundException("댓글을 찾을 수 없습니다"));
 
         if(!user.equals(comment.getUser()))
             throw new CommentUserMismatchException("댓글의 작성자가 아닙니다");
 
-        commentRepository.save(comment.update(id, modifyCommentReqDto.getContent()));
+        commentRepository.save(comment.update(commentId, modifyCommentReqDto.getContent()));
     }
 }

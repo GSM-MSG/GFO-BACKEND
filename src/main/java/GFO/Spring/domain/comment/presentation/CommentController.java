@@ -20,21 +20,21 @@ public class CommentController {
     private final ModifyCommentService modifyCommentService;
     private final DeleteCommentService deleteCommentService;
 
-    @PostMapping("/{id}")
-    public ResponseEntity<Void> createComment(@PathVariable Long id, @RequestBody @Valid CreateCommentReqDto createCommentReqDto) {
-        createCommentService.execute(id, createCommentReqDto);
+    @PostMapping("/{postId}")
+    public ResponseEntity<Void> createComment(@PathVariable Long postId, @RequestBody @Valid CreateCommentReqDto createCommentReqDto) {
+        createCommentService.execute(postId, createCommentReqDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PatchMapping("/{id}")
-    public ResponseEntity<Void> modifyComment(@PathVariable Long id, @RequestBody @Valid ModifyCommentReqDto modifyCommentReqDto) {
-        modifyCommentService.execute(id, modifyCommentReqDto);
+    @PatchMapping("/{commentId}")
+    public ResponseEntity<Void> modifyComment(@PathVariable Long commentId, @RequestBody @Valid ModifyCommentReqDto modifyCommentReqDto) {
+        modifyCommentService.execute(commentId, modifyCommentReqDto);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteComment(@PathVariable Long id) {
-        deleteCommentService.execute(id);
+    @DeleteMapping("/{commentId}")
+    public ResponseEntity<Void> deleteComment(@PathVariable Long commentId) {
+        deleteCommentService.execute(commentId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
